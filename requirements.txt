@@ -1,0 +1,4 @@
+yelpapi
+mysqlclient
+BeautifulSoup4
+python-whois

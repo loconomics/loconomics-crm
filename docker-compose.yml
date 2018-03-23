@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: loco_sales
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+  importer:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_HOST: db
+    env_file: .env
+    stdin_open: true
+    tty: true
