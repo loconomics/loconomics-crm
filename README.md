@@ -45,10 +45,9 @@ This container hosts a Python environment which runs our various importer script
 $ docker-compose exec importer bash
 ```
 
-##$ Database
+### Database
 
 This container holds MySQL and its associated utilities. To enter and more easily access the database, run:
-
 
 ```bash
 $ docker-compose exec db bash
