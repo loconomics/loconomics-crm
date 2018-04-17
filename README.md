@@ -28,7 +28,7 @@ Then:
 
 SuiteCRM is now running on ports 80 and 443. The default credentials are as follows:
 
-Username: User
+Username: admin
 Password: bitnami
 
 Enter this container by running:
