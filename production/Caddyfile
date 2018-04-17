@@ -1,0 +1,10 @@
+:443
+
+proxy / crm:80 {
+  transparent
+  websocket
+}
+
+tls {
+  max_certs 10
+}

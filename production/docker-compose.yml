@@ -1,0 +1,49 @@
+version: "3"
+
+volumes:
+
+  db:
+
+  caddy:
+
+  data:
+
+services:
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: suitecrm
+      MYSQL_USER: suitecrm
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    env_file: .env
+    volumes:
+      - db:/var/lib/mysql
+    restart: always
+
+  crm:
+    image: bitnami/suitecrm
+    environment:
+      MARIADB_HOST: db
+      SUITECRM_DATABASE_NAME: suitecrm
+      SUITECRM_DATABASE_USER: suitecrm
+      SUITECRM_USERNAME: admin
+      # NAMI_DEBUG: "--log-level trace"
+      # BASH_DEBUG: "1"
+    env_file: .env
+    volumes:
+      - data:/bitnami
+    depends_on:
+      - db
+    restart: always
+
+  web:
+    image: abiosoft/caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/Caddyfile
+      - caddy:/root/.caddy
+    command: --conf /etc/Caddyfile --agree --email tools@loconomics.com
+    restart: always
