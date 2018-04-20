@@ -1,6 +1,6 @@
 # Loconomics CRM Environment
 
-This configuration launches [SuiteCRM](https://suitecrm.com) for testing and *eventual* production use. It also contains organization-specific scripts for scraping data from Yelp, Bing, and Instagram.
+This configuration launches [SuiteCRM](https://suitecrm.com) for testing and development purposes. It also contains organization-specific scripts for scraping data from Yelp, Bing, and Instagram. Our [production configuration](./production) is slightly different, running fewer services and including configuration for automatic hourly database backups.
 
 ## Setup
 
