@@ -34,6 +34,8 @@ RESTIC_REPOSITORY=SOMETHING
 
 ### Set up Backups
 
+This setup uses [Restic](https://restic.net) for backing up MySQL database dumps.
+
 Edit _backup.sh_, if necessary, to set correct container names and such. Once complete, run the following commands to set up hourly database backups:
 
 ```bash
@@ -60,3 +62,5 @@ $ docker run -i --rm -e RESTIC_REPOSITORY=$RESTIC_REPOSITORY -e RESTIC_PASSWORD=
 ```
 
 This dump can then be reloaded into the _db_ container.
+
+See [this documentation](https://restic.readthedocs.io/en/latest/050_restore.html) for more details on restoring backups.
