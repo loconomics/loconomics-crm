@@ -1,0 +1,7 @@
+[Unit]
+Description=Backup
+
+[Service]
+Type=oneshot
+ExecStart=/home/loconomics/backup.sh
+Nice=19
